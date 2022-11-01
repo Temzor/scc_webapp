@@ -8,7 +8,6 @@ public class ObjectFigure {
     private Circle circle;
     private Point point;
 
-
     private Map<String, Figure> figureMap;
 
     public ObjectFigure(Circle circle, Point point, Map<String, Figure> figureMap) {
