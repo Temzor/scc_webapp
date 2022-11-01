@@ -39,4 +39,8 @@ public class ObjectFigure {
     public void setFigureMap(Map<String, Figure> figureMap) {
         this.figureMap = figureMap;
     }
+
+    public static void main(String[] args) {
+
+    }
 }

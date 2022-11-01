@@ -4,6 +4,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
+        double d = Math.pow(10, 100) - Math.pow(10, -100);
+
+        System.out.println(d);
         ClassPathXmlApplicationContext context
                 = new ClassPathXmlApplicationContext("applicationContextSpringDI.xml");
 
