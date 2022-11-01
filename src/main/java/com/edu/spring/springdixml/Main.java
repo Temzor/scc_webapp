@@ -10,6 +10,7 @@ public class Main {
         House house = context.getBean("houseBean", House.class);
 
         house.buildWall();
+        house.installDoors();
         house.view();
 
         System.out.println("House height: " + house.getHeight());
@@ -17,6 +18,9 @@ public class Main {
         MainWindow mainWindow = context.getBean(MainWindow.class);
 
         mainWindow.show();
+
+        System.out.println(context.getBean("houseBean", House.class));
+        System.out.println(context.getBean("houseBean", House.class));
 
         context.close();
     }

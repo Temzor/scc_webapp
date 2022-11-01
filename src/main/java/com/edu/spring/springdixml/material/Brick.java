@@ -1,4 +1,4 @@
-package com.edu.spring.springdixml;
+package com.edu.spring.springdixml.material;
 
 public class Brick implements Material {
 

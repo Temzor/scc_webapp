@@ -1,6 +1,9 @@
 package com.edu.spring.springdixml;
 
-public class MainWindow {
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class MainWindow implements InitializingBean, DisposableBean {
 
     private MainWindow() {
     }
@@ -19,5 +22,19 @@ public class MainWindow {
 
     public void openConnection() {
         System.out.println("Main window open connection");
+    }
+
+    public void closeConnection() {
+        System.out.println("Main window close connection");
+    }
+
+    @Override
+    public void afterPropertiesSet() {
+        openConnection();
+    }
+
+    @Override
+    public void destroy() {
+        closeConnection();
     }
 }

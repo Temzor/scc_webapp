@@ -1,4 +1,4 @@
-package com.edu.spring.springdixml;
+package com.edu.spring.springdixml.windows;
 
 public class WoodWindow implements Window {
     @Override

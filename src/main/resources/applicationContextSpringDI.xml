@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -10,19 +11,38 @@
     <context:annotation-config/>
     <context:component-scan base-package="com.edu"/>
 
-    <bean id="brickBean" class="com.edu.spring.springdixml.Brick"/>
-    <bean id="woodBean" class="com.edu.spring.springdixml.Wood"/>
-    <bean id="windowBean" class="com.edu.spring.springdixml.WoodWindow"/>
-    <bean id="houseBean" class="com.edu.spring.springdixml.House">
+    <bean id="brickBean" class="com.edu.spring.springdixml.material.Brick" scope="prototype"/>
+    <bean id="woodBean" class="com.edu.spring.springdixml.material.Wood" scope="prototype"/>
+    <bean id="windowBean" class="com.edu.spring.springdixml.windows.WoodWindow"/>
+    <bean id="outDoor" class="com.edu.spring.springdixml.doors.MetalDoor"/>
+    <bean id="innerDoor" class="com.edu.spring.springdixml.doors.WoodDoor" scope="prototype"/>
+    <bean id="houseBean" class="com.edu.spring.springdixml.House" p:height="2">
         <constructor-arg index="0" ref="windowBean"/>
         <!--
         <constructor-arg index="1" value="5"/>
-        -->
+
         <property name="height" value="2"/>
+        -->
         <property name="wall" ref="woodBean"/>
+        <!--
+        <property name="wall">
+            <bean class="com.edu.spring.springdixml.material.Brick"/>
+        </property>
+     -->
+        <property name="doors">
+            <!--
+            <list>
+                <ref bean="outDoor"/>
+                <ref bean="innerDoor"/>
+            </list>
+            -->
+            <map>
+                <entry key="A" value-ref="outDoor"/>
+                <entry key="B" value-ref="innerDoor"/>
+            </map>
+        </property>
     </bean>
 
     <bean id="mainWindowsBean" class="com.edu.spring.springdixml.MainWindow" factory-method="getInstance"
-    init-method="openConnection"/>
-
+          init-method="openConnection" destroy-method="closeConnection"/>
 </beans>

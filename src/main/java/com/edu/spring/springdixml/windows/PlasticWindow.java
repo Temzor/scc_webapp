@@ -1,4 +1,4 @@
-package com.edu.spring.springdixml;
+package com.edu.spring.springdixml.windows;
 
 public class PlasticWindow implements Window {
     @Override
